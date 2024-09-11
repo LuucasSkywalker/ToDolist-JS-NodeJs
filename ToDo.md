@@ -24,3 +24,6 @@ O inquirer é um pacote popular no Node.js usado para criar interfaces de linha 
 
 ## Programação assíncrona e Promises :
 Uso de funções assíncronas (async/await)
+
+## Tipos de estruturas de dados usado : 
+Arrays : push, [find,forEach,filter] : HOF (Higher order Functions)

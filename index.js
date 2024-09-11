@@ -38,21 +38,36 @@ const listarMetas = async () => {
    })
 
     if ( respostas.length == 0){
-             console.log("Nenhuma meta selecionado")
+            console.log("Nenhuma meta selecionado")
             return
     }
 
-    metas.forEach((m) => {
+     metas.forEach((m) => {
      m.checked = false
     })
 
      respostas.forEach((resposta) => {
           const meta = metas.find((m) => {
-              return m.value == resposta
+          return m.value == resposta
           })
           meta.checked = true
       })
       console.log('Meta(s) marcadas como concluída(s)')
+}
+
+const metasRealizadas = async () => {
+   const realizadas = metas.filter((meta) => {
+              return meta.checked
+   })
+      if(realizadas.length == 0) {
+      console.log('Não existem metas realizadas')
+      return
+   }
+
+      await select({
+      message: "Metas Realizadas",
+      choices: [...realizadas]
+   })
 }
 
 
@@ -73,6 +88,11 @@ const start = async () => {
                       value: "listar"
                     },
                     {
+                      name: "Metas realizadas",
+                      value: "realizadas",
+
+                    },
+                    {
                       name: "Sair",
                       value: "sair"
                     }
@@ -81,16 +101,21 @@ const start = async () => {
             
 
             switch(opcao) {
-                case "cadastrar":
+                   case "cadastrar":
                     await cadastrarMeta()
                     console.log(metas)
                     break
-                    case "listar":
+
+                      case "listar":
                       await listarMetas()
-                        console.log("vamos listar")
-                        break
-                        case "sair":
-                            return
+                      console.log("vamos listar")
+                      break
+
+                      case "realizadas":
+                      await metasRealizadas()
+                      break
+                      case "sair":
+                      return
             }
     }
 
