@@ -6,3 +6,8 @@
 - Remover metas
 - Sistemas de mensages
 
+## Fases para resolução do problema 
+
+Coletar os dados
+Processar os dados ( manipular, alterar ...)
+Apresentar os dados
