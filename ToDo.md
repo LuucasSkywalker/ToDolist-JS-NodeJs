@@ -6,11 +6,11 @@
 - Remover metas
 - Sistemas de mensages
 
-## Fases para resolução do problema 
+## 01 Fases para resolução do problema 
 
 Coletar os dados
 Processar os dados ( manipular, alterar ...)
-Apresentar os dados
+Apresentar os dados 
 
 ## Módulos em Node.js
 
