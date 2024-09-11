@@ -1,4 +1,4 @@
-const { select } = require('@inquirer/prompts')   /* 
+const { select, input } = require('@inquirer/prompts')   /* 
 require é uma função built-in .
 require é usado para IMPORTANDO UM MODULO/BIBLIOTECA/PACOTES ETC . . 
 Como o código está funcinando :
@@ -7,7 +7,18 @@ que é o inquirer, o @inquirer/prompts
 dentro da biblioteca inquirer/prompts tem um objeto que quero extrair que é
 o ( select ). . */
 
+
+const cadastrarMeta = async () => {
+    const meta = await input({ message: "Digite a meta:"})
+
+        if (meta.length == 0){
+          console.log('A meta não pode ser vazia')
+          return
+        }    
+}
+
 const start = async () => {  
+   
 
     while(true){
 
@@ -32,7 +43,7 @@ const start = async () => {
 
             switch(opcao) {
                 case "cadastrar":
-                    console.log("vamos cadastrar")
+                    await cadastrarMeta()
                     break
                     case "listar":
                         console.log("vamos listar")

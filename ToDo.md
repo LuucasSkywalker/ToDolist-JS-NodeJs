@@ -22,3 +22,5 @@ npm install inquirer
 //*Biblioteca 'inquirer' para criar prompts interativos
 O inquirer é um pacote popular no Node.js usado para criar interfaces de linha de comando interativas. Ele permite que você faça perguntas ao usuário e receba respostas de maneira amigável e estruturada. Isso é especialmente útil para criar scripts que precisam de entrada do usuário.
 
+## Programação assíncrona e Promises :
+Uso de funções assíncronas (async/await)
