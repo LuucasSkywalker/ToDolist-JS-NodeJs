@@ -27,3 +27,4 @@ Uso de funções assíncronas (async/await)
 
 ## Tipos de estruturas de dados usado : 
 Arrays : push, [find,forEach,filter] : HOF (Higher order Functions)
+

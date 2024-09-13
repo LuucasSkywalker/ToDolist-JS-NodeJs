@@ -1,13 +1,6 @@
-const { select, input, checkbox } = require('@inquirer/prompts')   /* 
-require é uma função built-in .
-require é usado para IMPORTANDO UM MODULO/BIBLIOTECA/PACOTES ETC . . 
-Como o código está funcinando :
-quero importar um modulo, e dentro desse modulo tem um objeto dentro da biblioteca 
-que é o inquirer, o @inquirer/prompts 
-dentro da biblioteca inquirer/prompts tem um objeto que quero extrair que é
-o ( select ). . */
+const { select, input, checkbox } = require('@inquirer/prompts')   
 
-
+let mensagem = "Metas"
 // ---------CADASTRAR METAS -----------
 let meta = {
     value: 'Tomar água',
@@ -28,6 +21,7 @@ const cadastrarMeta = async () => {
        checked: false
      })
 
+      mensagem = "Meta Cadastrada com sucesso"
 }
 
 // -------LISTAR METAS --------------
@@ -54,7 +48,7 @@ const listarMetas = async () => {
           })
           meta.checked = true
       })
-      console.log('Meta(s) marcadas como concluída(s)')
+      mensagem = 'Meta(s) marcadas como concluída(s)'
 }
 
 // ---------METAS REALIZADAS --------------
@@ -90,7 +84,7 @@ const metasAbertas = async () => {
      })
 }  
 
-
+// ----------DELETAR METAS -----------------
 const deletarMetas = async () =>{
   const metasDesmarcadas = metas.map((meta) => {
     return { value: meta.value, checked: false}
@@ -116,12 +110,20 @@ const itemsADeletar = await checkbox({
       console.log("Meta(s) deleta(s) com sucesso")
 }
 
+const mostrarMensagem = () => {
+  console.clear()
+  if( mensagem != ""){
+    console.log(mensagem)
+    console.log("")
+    mensagem = ""
+  }
+}
 
 const start = async () => {  
    
 
     while(true){
-
+         mostrarMensagem()
             const opcao = await select({
                 message: "Menu >",
                 choices: [
@@ -156,7 +158,6 @@ const start = async () => {
             switch(opcao) {
                    case "cadastrar":
                     await cadastrarMeta()
-                    console.log(metas)
                     break
 
                       case "listar":
